@@ -22,11 +22,11 @@ float f4(float x, int intensity);
 
 int main (int argc, char* argv[]) {
   
-  if (argc < 7) {
+  if (argc < 7) { //verifying correct # of inputs
     std::cerr<<"usage: "<<argv[0]<<" <functionid> <a> <b> <n> <intensity> <nbthreads>"<<std::endl;
     return -1;
   }
-  auto start = std::chrono::system_clock::now();
+  auto start = std::chrono::system_clock::now(); //starting the clock to measure performance
   
   int functionid = atoi(argv[1]);	//functionid
   int a = atoi(argv[2]);		//lower bound of the integral
@@ -37,9 +37,9 @@ int main (int argc, char* argv[]) {
   
   float integral=0;
   
-  SeqLoop sl;
+  SeqLoop sl; //seg_loop.hpp has SeqLoop class with parfor member.
 
-    if(functionid == 1){
+    if(functionid == 1){ //calling parfor loop, sending the numerical integration function
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
 	          integral += ((b-a)/n) * f1(a+((i+.5)*((b-a)/n)), intensity);
@@ -66,7 +66,7 @@ int main (int argc, char* argv[]) {
     }
   
   
-  std::cout<<integral<<std::endl;
+  std::cout<<integral<<std::endl; 
    
   auto finish = std::chrono::system_clock::now();
   std::cerr<<std::chrono::duration_cast<std::chrono::microseconds> (finish - start).count();
