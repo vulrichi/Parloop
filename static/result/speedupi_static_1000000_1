@@ -1,0 +1,4 @@
+1 0.00587046 ./static_sched: /lib64/libstdc++.so.6: version `CXXABI_1.3.9' not found (required by ./static_sched) ./static_sched: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by ./static_sched)
+10 0.0281384 ./static_sched: /lib64/libstdc++.so.6: version `CXXABI_1.3.9' not found (required by ./static_sched) ./static_sched: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by ./static_sched)
+100 0.46 ./static_sched: /lib64/libstdc++.so.6: version `CXXABI_1.3.9' not found (required by ./static_sched) ./static_sched: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by ./static_sched)
+1000 4.9879 ./static_sched: /lib64/libstdc++.so.6: version `CXXABI_1.3.9' not found (required by ./static_sched) ./static_sched: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by ./static_sched)
