@@ -7,7 +7,6 @@
 #include <thread>
 #include <mutex>
 
-#include "seq_loop.hpp"
 
 #include "seq_loop.hpp"
 
@@ -23,7 +22,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
 int main (int argc, char* argv[]) {
   
   if (argc < 7) { //verifying correct # of inputs
@@ -39,10 +37,9 @@ int main (int argc, char* argv[]) {
   int intensity = atoi(argv[5]);	//intensity of the function
   int nbthreads = atoi(argv[6]);	//number of threads
   
-  float integral=0;
+  float integral = 0;
   
   SeqLoop sl; //seg_loop.hpp has SeqLoop class with parfor member.
-
     if(functionid == 1){ //calling parfor loop, sending the numerical integration function
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
