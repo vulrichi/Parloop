@@ -4,6 +4,8 @@
 #include <string.h>
 #include <chrono>
 #include <cmath>
+#include <thread>
+#include <mutex>
 
 #include "seq_loop.hpp"
 
@@ -11,10 +13,10 @@
 extern "C" {
 #endif
 
-float f1(float x, int intensity);
-float f2(float x, int intensity);
-float f3(float x, int intensity);
-float f4(float x, int intensity);
+	float f1(float x, int intensity);
+	float f2(float x, int intensity);
+	float f3(float x, int intensity);
+	float f4(float x, int intensity);
 
 #ifdef __cplusplus
 }
