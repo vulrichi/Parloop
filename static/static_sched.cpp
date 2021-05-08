@@ -44,8 +44,8 @@ int main (int argc, char* argv[]) {
     if(functionid == 1){ //calling parfor loop, sending the numerical integration function
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          x = ((b-a)/n) * f1(a+((i+.5)*((b-a)/n)), intensity);
 	          mtx.lock();
+	          x = ((b-a)/n) * f1(a+((i+.5)*((b-a)/n)), intensity);
 	          integral = x + integral;
 	          mtx.unlock();
 	        }  
@@ -53,8 +53,8 @@ int main (int argc, char* argv[]) {
   } else if(functionid == 2){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          x = ((b-a)/n) * f2(a+((i+.5)*((b-a)/n)), intensity);
 	          mtx.lock();
+	          x = ((b-a)/n) * f2(a+((i+.5)*((b-a)/n)), intensity);
 	          integral = x + integral;
 	          mtx.unlock();
 	        }  
@@ -62,8 +62,8 @@ int main (int argc, char* argv[]) {
   } else if(functionid == 3){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          x = ((b-a)/n) * f3(a+((i+.5)*((b-a)/n)), intensity);
 	          mtx.lock();
+	          x = ((b-a)/n) * f3(a+((i+.5)*((b-a)/n)), intensity);
 	          integral = x + integral;
 	          mtx.unlock();
 	        }  
@@ -71,8 +71,8 @@ int main (int argc, char* argv[]) {
   } else if(functionid == 4){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          x = ((b-a)/n) * f4(a+((i+.5)*((b-a)/n)), intensity);
 	          mtx.lock();
+	          x = ((b-a)/n) * f4(a+((i+.5)*((b-a)/n)), intensity);
 	          integral = x + integral;
 	          mtx.unlock();
 	        }  
