@@ -6,7 +6,7 @@
 #include <cmath>
 #include <thread>
 #include <mutex>
-
+#include <atomic>
 
 #include "seq_loop.hpp"
 
@@ -37,31 +37,37 @@ int main (int argc, char* argv[]) {
   int intensity = atoi(argv[5]);	//intensity of the function
   int nbthreads = atoi(argv[6]);	//number of threads
   
-  float integral = 0;
+  float x =0;
+  std::atomic<float> integral = 0;
+  std::mutex mtx;
   
   SeqLoop sl; //seg_loop.hpp has SeqLoop class with parfor member.
     if(functionid == 1){ //calling parfor loop, sending the numerical integration function
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          integral += ((b-a)/n) * f1(a+((i+.5)*((b-a)/n)), intensity);
+	          x = ((b-a)/n) * f1(a+((i+.5)*((b-a)/n)), intensity);
+	          integral = x + integral;
 	        }  
 	);  	
   } else if(functionid == 2){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          integral += ((b-a)/n) * f2(a+((i+.5)*((b-a)/n)), intensity);
+	          x = ((b-a)/n) * f2(a+((i+.5)*((b-a)/n)), intensity);
+	          integral = x + integral;
 	        }  
 	);  	
   } else if(functionid == 3){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          integral += ((b-a)/n) * f3(a+((i+.5)*((b-a)/n)), intensity);
+	          x = ((b-a)/n) * f3(a+((i+.5)*((b-a)/n)), intensity);
+	          integral = x + integral;
 	        }  
 	);  	
   } else if(functionid == 4){
       sl.parfor(0, n, nbthreads,
 	        [&](int i) -> void{
-	          integral += ((b-a)/n) * f4(a+((i+.5)*((b-a)/n)), intensity);
+	          x = ((b-a)/n) * f4(a+((i+.5)*((b-a)/n)), intensity);
+	          integral = x + integral;
 	        }  
 	);  	
     }
