@@ -9,6 +9,8 @@
 
 #include "seq_loop.hpp"
 
+#include "seq_loop.hpp"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
